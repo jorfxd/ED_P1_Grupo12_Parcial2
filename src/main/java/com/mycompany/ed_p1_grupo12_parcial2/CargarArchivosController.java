@@ -42,6 +42,9 @@ public class CargarArchivosController implements Initializable {
     
     @FXML
     private Button loadFileButton3;
+    
+    @FXML
+    private Button next;
 
 
     @Override
@@ -113,5 +116,8 @@ public class CargarArchivosController implements Initializable {
         }
         
     }
-    
+    @FXML
+    private void switchToMen()throws IOException{
+        App.setRoot("Menu");
+    }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.OpcionesController">
+   <children>
+      <Label layoutX="246.0" layoutY="57.0" text="Opciones">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="jugarDenuevo" layoutX="245.0" layoutY="126.0" mnemonicParsing="false" onAction="#switchToJuego" text="Jugar De nuevo" />
+      <Button fx:id="irArchivos" layoutX="233.0" layoutY="169.0" mnemonicParsing="false" onAction="#switchToCargarArchivos" text="Cargar mas archivos" />
+      <Button fx:id="irAMenu" layoutX="259.0" layoutY="213.0" mnemonicParsing="false" onAction="#switchToMenu" text="Ir al Menu" />
+      <Button fx:id="salir" layoutX="275.0" layoutY="265.0" mnemonicParsing="false" onAction="#salir" text="Salir" />
+   </children>
+</AnchorPane>

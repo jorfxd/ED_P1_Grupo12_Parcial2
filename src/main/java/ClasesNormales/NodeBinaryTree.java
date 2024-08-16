@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ClasesNormales;
 
 public class NodeBinaryTree<E> {
@@ -13,7 +9,6 @@ public class NodeBinaryTree<E> {
         this.content = content;
         this.left=null;
         this.right=null;
-        
         // this.left = new BinaryTree<>();
         // this.right = new BinaryTree<>();
     }

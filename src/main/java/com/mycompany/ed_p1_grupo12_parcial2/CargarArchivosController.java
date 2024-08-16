@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.ed_p1_grupo12_parcial2;
 
 import java.net.URL;
@@ -26,26 +22,18 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
 public class CargarArchivosController implements Initializable {
+    
     private final BooleanProperty preguntas = new SimpleBooleanProperty(false);
     private final BooleanProperty respuestas = new SimpleBooleanProperty(false);
-    @FXML
-    private Button loadFileButton;
-
-    @FXML
-    private Label fileNameLabel;
     
-    @FXML
-    private Button loadFileButton2;
-
-    @FXML
-    private Label fileNameLabel2;
-    
-    @FXML
-    private Button loadFileButton3;
-    
-    @FXML
-    private Button next;
-
+    @FXML private Button loadFileButton;
+    @FXML private Label fileNameLabel;
+    @FXML private Button loadFileButton2;
+    @FXML private Label fileNameLabel2;
+    @FXML private Button loadFileButton3;
+    @FXML private Button next;
+    @FXML private Button btc1;
+    @FXML private Button btc2;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,7 +56,7 @@ public class CargarArchivosController implements Initializable {
             label.setText("Archivo seleccionado: " + selectedFile.getName());
 
             // Define la ruta de destino dentro de tu proyecto
-            Path destinationPath = Path.of("src/main/resources/saved_files", selectedFile.getName());
+            Path destinationPath = Path.of("src/main/resources/Saved_files", selectedFile.getName());
 
             try {
                 // Crea el directorio si no existe
@@ -78,20 +66,21 @@ public class CargarArchivosController implements Initializable {
                 Files.copy(selectedFile.toPath(), destinationPath, StandardCopyOption.REPLACE_EXISTING);
 
                 archivo.set(true);
-                label.setText("Archivo guardado con exito ;)");
-                boton.setDisable(true);
+                label.setText("ARCHIVO GUARDADO \nCON ÉXITO");
             } catch (IOException e) {
                 e.printStackTrace();
-                label.setText("Error al guardar el archivo:(");
+                label.setText("ERROR AL GUARDAR \nEL ARCHIVO");
             }
         } else {
-            label.setText("No se ha seleccionado ningún archivo.");
+            label.setText("NO SE HA SELECCIONADO NINGÚN ARCHIVO");
         }
     }
+    
     @FXML
     private void loadFilePreguntas() {
         cargarArchivoComun(loadFileButton,fileNameLabel,preguntas);
     }
+    
     @FXML
     private void loadFileRespuestas() {
         cargarArchivoComun(loadFileButton2,fileNameLabel2,respuestas);
@@ -116,8 +105,9 @@ public class CargarArchivosController implements Initializable {
         }
         
     }
+    
     @FXML
-    private void switchToMen()throws IOException{
-        App.setRoot("Menu");
+    private void switchToInstrucciones()throws IOException{
+        App.setRoot("Instrucciones");
     }
 }

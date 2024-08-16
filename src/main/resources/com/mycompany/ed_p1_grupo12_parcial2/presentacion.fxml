@@ -2,30 +2,49 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="691.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.PresentacionController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../../Styles/Style_Presentacion.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.PresentacionController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="430.0" fitWidth="495.0" layoutX="-85.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/arbol2-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="431.0" layoutY="75.0" text="Integrantes:">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="131.0" prefHeight="146.0" prefWidth="835.0" text="VEINTE" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="19.0" />
+            <Font name="Press Start 2P Regular" size="125.0" />
          </font>
       </Label>
-      <Label layoutX="431.0" layoutY="123.0" />
-      <Label layoutX="431.0" layoutY="115.0" prefHeight="41.0" prefWidth="94.0" text="-Jorge Arroba" />
-      <ImageView fx:id="myImageView" fitHeight="288.0" fitWidth="274.0" layoutX="363.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="button1" layoutX="430.0" layoutY="358.0" mnemonicParsing="false" onAction="#switchToCargarArchivos" prefHeight="27.0" prefWidth="84.0" text="Empezar" />
-      <Label layoutX="431.0" layoutY="156.0" text="-Emily Valarezo" />
-      <Label layoutX="431.0" layoutY="186.0" text="-Sergio ??" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="126.0" prefHeight="146.0" prefWidth="835.0" text="VEINTE" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Press Start 2P Regular" size="125.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="136.0" layoutY="251.0" prefHeight="146.0" prefWidth="835.0" text="PREGUNTAS" textAlignment="CENTER">
+         <font>
+            <Font name="Press Start 2P Regular" size="83.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="246.0" prefHeight="146.0" prefWidth="835.0" text="PREGUNTAS" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Press Start 2P Regular" size="83.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="371.0" layoutY="415.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="359.0" style="-fx-border-radius: 5000; -fx-background-color: WHITE;">
+         <font>
+            <Font name="Press Start 2P Regular" size="41.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="446.0" prefHeight="9.0" prefWidth="298.0" text="EMPEZAR" textAlignment="CENTER">
+         <font>
+            <Font name="Press Start 2P Regular" size="41.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="403.0" layoutY="443.0" prefHeight="0.0" prefWidth="298.0" text="EMPEZAR" textAlignment="CENTER" textFill="#588fd6">
+         <font>
+            <Font name="Press Start 2P Regular" size="41.0" />
+         </font>
+      </Label>
+      <Button fx:id="button1" alignment="CENTER" contentDisplay="CENTER" layoutX="371.0" layoutY="415.0" mnemonicParsing="false" onAction="#switchToInstrucciones" prefHeight="96.0" prefWidth="359.0" style="-fx-border-radius: 5000; -fx-background-color: clean;">
+         <font>
+            <Font name="Press Start 2P Regular" size="41.0" />
+         </font></Button>
    </children>
 </AnchorPane>

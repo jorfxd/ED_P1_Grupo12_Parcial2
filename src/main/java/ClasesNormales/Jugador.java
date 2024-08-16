@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ClasesNormales;
 
 public class Jugador {
-    private static int aumentarId=0;
+    private static int aumentarId = 0;
     private int id;
     private String nombre;
     private int partidasJugadas;
@@ -13,9 +9,9 @@ public class Jugador {
     
     public Jugador(String nombre){
         this.id = aumentarId++; //Devuelve el valor actual y luego lo incrementa
-        this.nombre=nombre;
-        partidasJugadas=0;
-        partidasGanadas=0;
+        this.nombre = nombre;
+        partidasJugadas = 0;
+        partidasGanadas = 0;
     }
     
     public void aumentarPartidasJugadas(){

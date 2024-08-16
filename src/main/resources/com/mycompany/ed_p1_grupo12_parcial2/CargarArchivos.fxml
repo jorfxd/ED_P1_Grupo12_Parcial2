@@ -1,34 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.CargarArchivosController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../../Styles/Style_CargarArchivos.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.CargarArchivosController">
    <children>
-      <Label fx:id="fileNameLabel" layoutX="79.0" layoutY="126.0" prefHeight="28.0" prefWidth="443.0">
+      <Label alignment="CENTER" layoutX="103.0" layoutY="105.0" prefHeight="71.0" prefWidth="901.0" text="ARCHIVOS" textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font name="Press Start 2P Regular" size="107.0" />
          </font>
       </Label>
-      <Button fx:id="loadFileButton" layoutX="331.0" layoutY="84.0" mnemonicParsing="false" onAction="#loadFilePreguntas" text="Preguntas" />
-      <Label layoutX="81.0" layoutY="82.0" prefHeight="28.0" prefWidth="191.0" text="Archivo de preguntas:">
+      <Label alignment="CENTER" layoutX="99.0" layoutY="101.0" prefHeight="71.0" prefWidth="901.0" text="ARCHIVOS" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Press Start 2P Regular" size="107.0" />
+         </font>
+      </Label>
+      <Label fx:id="fileNameLabel" alignment="CENTER" graphicTextGap="0.0" layoutX="128.0" layoutY="431.0" prefHeight="96.0" prefWidth="308.0" textAlignment="CENTER" textFill="#325887" wrapText="true">
+         <font>
+            <Font name="DM Sans Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="92.0" layoutY="279.0" prefHeight="38.0" prefWidth="372.0" text="PREGUNTAS">
+         <font>
+            <Font name="Press Start 2P Regular" size="37.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="90.0" layoutY="277.0" prefHeight="38.0" prefWidth="372.0" text="PREGUNTAS" textFill="WHITE">
+         <font>
+            <Font name="Press Start 2P Regular" size="37.0" />
          </font></Label>
-      <Label layoutX="81.0" layoutY="192.0" text="Archivo de respuestas:">
+      <Label layoutX="618.0" layoutY="274.0" prefHeight="51.0" prefWidth="378.0" text="RESPUESTAS">
          <font>
-            <Font size="18.0" />
+            <Font name="Press Start 2P Regular" size="37.0" />
          </font>
       </Label>
-      <Button fx:id="loadFileButton2" layoutX="331.0" layoutY="193.0" mnemonicParsing="false" onAction="#loadFileRespuestas" text="Respuestas" />
-      <Label fx:id="fileNameLabel2" layoutX="81.0" layoutY="238.0" prefHeight="28.0" prefWidth="452.0">
+      <Label layoutX="617.0" layoutY="272.0" prefHeight="51.0" prefWidth="378.0" text="RESPUESTAS" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Press Start 2P Regular" size="37.0" />
          </font>
       </Label>
-      <Button fx:id="loadFileButton3" layoutX="256.0" layoutY="318.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="28.0" prefWidth="88.0" text="Menu" />
-      <Button fx:id="next" layoutX="496.0" layoutY="334.0" mnemonicParsing="false" onAction="#switchToMen" text="Skip" />
+      <Label fx:id="fileNameLabel2" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="654.0" layoutY="429.0" prefHeight="96.0" prefWidth="308.0" textAlignment="CENTER" textFill="#325887" wrapText="true">
+         <font>
+            <Font name="DM Sans Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="776.0" layoutY="561.0" prefHeight="51.0" prefWidth="378.0" text="COMENZAR">
+         <font>
+            <Font name="Press Start 2P Regular" size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="loadFileButton3" layoutX="755.0" layoutY="560.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: clear;" text="COMENZAR" textFill="WHITE">
+         <font>
+            <Font name="Press Start 2P Regular" size="28.0" />
+         </font></Button>
+      <Label alignment="CENTER" layoutY="566.0" prefHeight="38.0" prefWidth="372.0" text="VOLVER">
+         <font>
+            <Font name="Press Start 2P Regular" size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="next" layoutX="82.0" layoutY="559.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToInstrucciones" style="-fx-background-color: clear;" text="VOLVER" textFill="WHITE">
+         <font>
+            <Font name="Press Start 2P Regular" size="28.0" />
+         </font></Button>
+      <Button fx:id="btc1" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="120.0" layoutY="340.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="308.0" style="-fx-background-color: white; -fx-border-radius: 5000;" textAlignment="CENTER" textFill="#325887" wrapText="true">
+         <font>
+            <Font name="Arial" size="28.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Label alignment="CENTER" layoutX="151.0" layoutY="356.0" prefHeight="38.0" prefWidth="244.0" text="ESCOGER" textFill="#325887">
+         <font>
+            <Font name="Press Start 2P Regular" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="153.0" layoutY="389.0" prefHeight="38.0" prefWidth="244.0" text="UN ARCHIVO" textFill="#325887">
+         <font>
+            <Font name="Press Start 2P Regular" size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="loadFileButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="120.0" layoutY="340.0" mnemonicParsing="false" onAction="#loadFilePreguntas" prefHeight="97.0" prefWidth="308.0" style="-fx-background-color: CLEAR; -fx-border-radius: 5000;" textAlignment="CENTER" textFill="#325887" wrapText="true">
+         <font>
+            <Font name="Arial" size="28.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></Button>
+      <Button fx:id="btc2" layoutX="646.0" layoutY="338.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="308.0" style="-fx-background-color: white; -fx-border-radius: 5000;" textAlignment="CENTER" textFill="#325887" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+         <font>
+            <Font name="Arcade Normal" size="23.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="678.0" layoutY="356.0" prefHeight="38.0" prefWidth="244.0" text="ESCOGER" textFill="#325887">
+         <font>
+            <Font name="Press Start 2P Regular" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="679.0" layoutY="389.0" prefHeight="38.0" prefWidth="244.0" text="UN ARCHIVO" textFill="#325887">
+         <font>
+            <Font name="Press Start 2P Regular" size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="loadFileButton2" layoutX="646.0" layoutY="338.0" mnemonicParsing="false" onAction="#loadFileRespuestas" prefHeight="97.0" prefWidth="308.0" style="-fx-background-color: clear; -fx-border-radius: 5000;" textAlignment="CENTER" textFill="#325887" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+         <font>
+            <Font name="Arcade Normal" size="23.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

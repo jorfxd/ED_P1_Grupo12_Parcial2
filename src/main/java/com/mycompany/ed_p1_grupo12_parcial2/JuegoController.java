@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.ed_p1_grupo12_parcial2;
 
 import java.io.IOException;
@@ -15,41 +11,35 @@ import javafx.scene.control.TextField;
 
 
 public class JuegoController implements Initializable {
-    @FXML
-    private Button si;
-    @FXML
-    private Button no;
-    @FXML
-    private Button opciones;
-    @FXML
-    private Label texto;
-    @FXML
-    private Label contador;
-    @FXML
-    private TextField respuesta;
+    
+    @FXML private Button si;
+    @FXML private Button no;
+    @FXML private Button opciones;
+    @FXML private Label texto;
+    @FXML private Label contador;
+    @FXML private TextField respuesta;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+    
     private void OpcionSi() {
         
     }
+    
     private void OpcionNo() {
         
     }
     
     private boolean juegoTerminado(){
-        boolean valor=true;
-        
+        boolean valor = true;
         return valor;
     }
     
     @FXML
     private void switchToOpciones() throws IOException {
-        App.setRoot("opciones");
-    }
-    
-    
+        App.setRoot("Opciones");
+    } 
     
 }

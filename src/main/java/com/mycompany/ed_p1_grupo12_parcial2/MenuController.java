@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.ed_p1_grupo12_parcial2;
 
 import ClasesNormales.Jugador;
@@ -21,41 +17,24 @@ import javafx.scene.image.ImageView;
 
 public class MenuController implements Initializable {
     
-    @FXML
-    Button juego;
-    
-    @FXML
-    Button retroceder;
-    
-    @FXML
-    private TextField nombreJugador;
-    
-    @FXML
-    private TextField cantidadPreguntas;
-    
-    @FXML
-    private TextField nombreArchivoPreguntas;
-    
-    @FXML
-    private TextField nombreArchivoRespuestas;
-    
-    @FXML
-    private ImageView gif;
-    
-    @FXML
-    private Label mensaje;
-    
-    
+    @FXML Button juego;
+    @FXML Button retroceder;
+    @FXML private TextField nombreJugador;
+    @FXML private TextField cantidadPreguntas;
+    @FXML private TextField nombreArchivoPreguntas;
+    @FXML private TextField nombreArchivoRespuestas;
+    @FXML private ImageView gif;
+    @FXML private Label mensaje;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Cargar el GIF animado desde el directorio de recursos
-        Image gifImage = new Image(getClass().getResourceAsStream("/images/guessAnimal.gif"));
+        Image gifImage = new Image(getClass().getResourceAsStream("/Images/guessAnimal.gif"));
         gif.setImage(gifImage);
     }
     
     private boolean verificaArchivos(String archivo1,String archivo2){
-        String carpeta = "src/main/resources/saved_files/";
+        String carpeta = "src/main/resources/Saved_files/";
 
         // Crea objetos File para los archivos
         File file1 = new File(carpeta + archivo1+".txt");
@@ -63,8 +42,8 @@ public class MenuController implements Initializable {
 
         // Verifica si ambos archivos existen
         return file1.exists() && file2.exists();
-
     }
+    
     private void mostrarAlerta(String mensaje, Alert.AlertType tipoAlerta) {
         Alert alerta = new Alert(tipoAlerta);
         alerta.setTitle("Advertencia");
@@ -75,16 +54,15 @@ public class MenuController implements Initializable {
     
     @FXML
     private void switchToCargarArchivos() throws IOException {
-        App.setRoot("CargarArchivos");
-        
+        App.setRoot("CargarArchivos");  
     }
     
     @FXML
     private void switchToJuego() throws IOException {
-        String nombre=nombreJugador.getText();
-        String cantidadPre=cantidadPreguntas.getText();
-        String archivoPre=nombreArchivoPreguntas.getText();
-        String archivoRe=nombreArchivoRespuestas.getText();
+        String nombre = nombreJugador.getText();
+        String cantidadPre = cantidadPreguntas.getText();
+        String archivoPre = nombreArchivoPreguntas.getText();
+        String archivoRe = nombreArchivoRespuestas.getText();
         
         boolean nombreNoVacio = nombre != null && !nombre.isEmpty();
         boolean cantidadNoVacia = cantidadPre != null && !cantidadPre.isEmpty();
@@ -92,20 +70,14 @@ public class MenuController implements Initializable {
         boolean archivoReNoVacio = archivoRe != null && !archivoRe.isEmpty();
         
         if(nombreNoVacio && cantidadNoVacia && archivoPreNoVacio && archivoReNoVacio){
-            Jugador jugador=new Jugador(nombre);
+            Jugador jugador = new Jugador(nombre);
             boolean verificarArchivos=verificaArchivos(archivoPre,archivoRe);
             if(verificarArchivos){
-                App.setRoot("juego");
+                App.setRoot("Juego");
             }else{
                 mensaje.setText("!Ingrese los Nombres de los archivos correctamente!");}
         }else{
             mostrarAlerta("Debe llenar los campos",Alert.AlertType.WARNING);}  
-    }
-    
-    //public String get
-    
-    
-    
-            
+    } 
     
 }

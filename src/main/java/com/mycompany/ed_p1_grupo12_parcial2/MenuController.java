@@ -78,6 +78,20 @@ public class MenuController implements Initializable {
                 mensaje.setText("!Ingrese los Nombres de los archivos correctamente!");}
         }else{
             mostrarAlerta("Debe llenar los campos",Alert.AlertType.WARNING);}  
-    } 
+    }
+    
+    public int getCantidadPreguntas(){
+        int cantidad=Integer.parseInt(cantidadPreguntas.getText());
+        return cantidad;
+    }
+    public String getArchivoPreguntas(){
+        String carpeta = "src/main/resources/saved_files/";
+        return carpeta+nombreArchivoPreguntas.getText()+".txt";
+    }
+    
+    public String getArchivoRespuestas(){
+        String carpeta = "src/main/resources/saved_files/";
+        return carpeta+nombreArchivoRespuestas.getText()+".txt";
+    }
     
 }

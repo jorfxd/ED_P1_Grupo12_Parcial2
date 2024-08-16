@@ -66,13 +66,13 @@ public class CargarArchivosController implements Initializable {
                 Files.copy(selectedFile.toPath(), destinationPath, StandardCopyOption.REPLACE_EXISTING);
 
                 archivo.set(true);
-                label.setText("ARCHIVO GUARDADO \nCON ÉXITO");
+                label.setText("ARCHIVO GUARDADO\nCON ÉXITO");
             } catch (IOException e) {
                 e.printStackTrace();
-                label.setText("ERROR AL GUARDAR \nEL ARCHIVO");
+                label.setText("ERROR AL GUARDAR\nEL ARCHIVO");
             }
         } else {
-            label.setText("NO SE HA SELECCIONADO NINGÚN ARCHIVO");
+            label.setText("NO SE SELECCIONÓ\nNINGÚN ARCHIVO");
         }
     }
     

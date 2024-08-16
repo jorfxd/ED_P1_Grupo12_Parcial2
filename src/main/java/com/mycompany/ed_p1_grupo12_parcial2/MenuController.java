@@ -1,9 +1,11 @@
 package com.mycompany.ed_p1_grupo12_parcial2;
 
 import ClasesNormales.Jugador;
+import static ClasesNormales.Jugador.crearJugador;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,28 +23,30 @@ public class MenuController implements Initializable {
     @FXML Button retroceder;
     @FXML private TextField nombreJugador;
     @FXML private TextField cantidadPreguntas;
+    @FXML private TextField apodoJugador;
     @FXML private TextField nombreArchivoPreguntas;
     @FXML private TextField nombreArchivoRespuestas;
-    @FXML private ImageView gif;
-    @FXML private Label mensaje;
+    
+    static ArrayList<Jugador> apodosRegistrados = new ArrayList<>();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Cargar el GIF animado desde el directorio de recursos
-        Image gifImage = new Image(getClass().getResourceAsStream("/Images/guessAnimal.gif"));
-        gif.setImage(gifImage);
+        nombreJugador.setStyle("-fx-text-fill: #325887;");
+        cantidadPreguntas.setStyle("-fx-text-fill: #325887;");
+        apodoJugador.setStyle("-fx-text-fill: #325887;");
+        //TODO
     }
     
-    private boolean verificaArchivos(String archivo1,String archivo2){
-        String carpeta = "src/main/resources/Saved_files/";
-
-        // Crea objetos File para los archivos
-        File file1 = new File(carpeta + archivo1+".txt");
-        File file2 = new File(carpeta + archivo2+".txt");
-
-        // Verifica si ambos archivos existen
-        return file1.exists() && file2.exists();
-    }
+//    private boolean verificaArchivos(String archivo1,String archivo2){
+//        String carpeta = "src/main/resources/Saved_files/";
+//
+//        // Crea objetos File para los archivos
+//        File file1 = new File(carpeta + archivo1+".txt");
+//        File file2 = new File(carpeta + archivo2+".txt");
+//
+//        // Verifica si ambos archivos existen
+//        return file1.exists() && file2.exists();
+//    }
     
     private void mostrarAlerta(String mensaje, Alert.AlertType tipoAlerta) {
         Alert alerta = new Alert(tipoAlerta);
@@ -59,39 +63,39 @@ public class MenuController implements Initializable {
     
     @FXML
     private void switchToJuego() throws IOException {
+        apodosRegistrados = Jugador.objetoJugadores(App.pathFiles + "Jugadores.txt");
         String nombre = nombreJugador.getText();
+        String apodo = apodoJugador.getText();
         String cantidadPre = cantidadPreguntas.getText();
-        String archivoPre = nombreArchivoPreguntas.getText();
-        String archivoRe = nombreArchivoRespuestas.getText();
         
         boolean nombreNoVacio = nombre != null && !nombre.isEmpty();
+        boolean apodoNoVacio = apodo != null && !apodo.isEmpty();
         boolean cantidadNoVacia = cantidadPre != null && !cantidadPre.isEmpty();
-        boolean archivoPreNoVacio = archivoPre != null && !archivoPre.isEmpty();
-        boolean archivoReNoVacio = archivoRe != null && !archivoRe.isEmpty();
         
-        if(nombreNoVacio && cantidadNoVacia && archivoPreNoVacio && archivoReNoVacio){
-            Jugador jugador = new Jugador(nombre);
-            boolean verificarArchivos=verificaArchivos(archivoPre,archivoRe);
-            if(verificarArchivos){
+        if(nombreNoVacio && cantidadNoVacia && apodoNoVacio){
+            
+            boolean verificar = crearJugador(nombre, apodo, apodosRegistrados, App.pathFiles + "Jugadores.txt");
+            if(verificar){
                 App.setRoot("Juego");
-            }else{
-                mensaje.setText("!Ingrese los Nombres de los archivos correctamente!");}
+            } else {
+                apodoJugador.setText("Este apodo ya existe.");
+            }
         }else{
-            mostrarAlerta("Debe llenar los campos",Alert.AlertType.WARNING);}  
+            mostrarAlerta("Debe llenar todos los campos",Alert.AlertType.WARNING);}  
     }
     
     public int getCantidadPreguntas(){
-        int cantidad=Integer.parseInt(cantidadPreguntas.getText());
+        int cantidad = Integer.parseInt(cantidadPreguntas.getText());
         return cantidad;
     }
     public String getArchivoPreguntas(){
         String carpeta = "src/main/resources/saved_files/";
-        return carpeta+nombreArchivoPreguntas.getText()+".txt";
+        return carpeta + nombreArchivoPreguntas.getText()+".txt";
     }
     
     public String getArchivoRespuestas(){
         String carpeta = "src/main/resources/saved_files/";
-        return carpeta+nombreArchivoRespuestas.getText()+".txt";
+        return carpeta + nombreArchivoRespuestas.getText()+".txt";
     }
     
 }

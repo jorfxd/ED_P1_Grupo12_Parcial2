@@ -1,5 +1,6 @@
 package com.mycompany.ed_p1_grupo12_parcial2;
 
+import ClasesNormales.Data;
 import ClasesNormales.Jugador;
 import static ClasesNormales.Jugador.crearJugador;
 import java.io.File;
@@ -24,8 +25,6 @@ public class MenuController implements Initializable {
     @FXML private TextField nombreJugador;
     @FXML private TextField cantidadPreguntas;
     @FXML private TextField apodoJugador;
-    @FXML private TextField nombreArchivoPreguntas;
-    @FXML private TextField nombreArchivoRespuestas;
     
     static ArrayList<Jugador> apodosRegistrados = new ArrayList<>();
     
@@ -67,35 +66,47 @@ public class MenuController implements Initializable {
         String nombre = nombreJugador.getText();
         String apodo = apodoJugador.getText();
         String cantidadPre = cantidadPreguntas.getText();
-        
+
         boolean nombreNoVacio = nombre != null && !nombre.isEmpty();
         boolean apodoNoVacio = apodo != null && !apodo.isEmpty();
         boolean cantidadNoVacia = cantidadPre != null && !cantidadPre.isEmpty();
-        
-        if(nombreNoVacio && cantidadNoVacia && apodoNoVacio){
-            
-            boolean verificar = crearJugador(nombre, apodo, apodosRegistrados, App.pathFiles + "Jugadores.txt");
-            if(verificar){
-                App.setRoot("Juego");
-            } else {
-                apodoJugador.setText("Este apodo ya existe.");
+
+        if (nombreNoVacio && cantidadNoVacia && apodoNoVacio) {
+            try {
+                int cantpre = Integer.parseInt(cantidadPre);  
+
+                if (rango(cantpre)) {  // Se verifica si está en el rango permitido
+                    boolean verificar = crearJugador(nombre, apodo, apodosRegistrados, App.pathFiles + "Jugadores.txt");
+                    setCantidadPreguntas(cantidadPre);
+
+                    if (verificar) {
+                        App.setRoot("Juego");
+                    } else {
+                        apodoJugador.setText("Este apodo ya existe.");
+                    }
+                } else {
+                    cantidadPreguntas.setText("Las preguntas deben ser > 0 y <= 20.");
+                }
+            } catch (NumberFormatException e) {
+                mostrarAlerta("Por favor ingrese un número válido para la cantidad de preguntas.", Alert.AlertType.ERROR);
             }
-        }else{
-            mostrarAlerta("Debe llenar todos los campos",Alert.AlertType.WARNING);}  
+        } else {
+            mostrarAlerta("Debe llenar todos los campos", Alert.AlertType.WARNING);
+        }
     }
     
-    public int getCantidadPreguntas(){
-        int cantidad = Integer.parseInt(cantidadPreguntas.getText());
-        return cantidad;
-    }
-    public String getArchivoPreguntas(){
-        String carpeta = "src/main/resources/saved_files/";
-        return carpeta + nombreArchivoPreguntas.getText()+".txt";
+    public void setCantidadPreguntas(String cantidadPre){
+        
+            int cantidad = Integer.parseInt(cantidadPre);
+            if(rango(cantidad)){
+                Data.setCantidadPreguntas(cantidad);
+            
+            
+        } 
     }
     
-    public String getArchivoRespuestas(){
-        String carpeta = "src/main/resources/saved_files/";
-        return carpeta + nombreArchivoRespuestas.getText()+".txt";
+    public boolean rango(int cantidad){
+        return cantidad > 0 && cantidad <= 20;
     }
     
 }

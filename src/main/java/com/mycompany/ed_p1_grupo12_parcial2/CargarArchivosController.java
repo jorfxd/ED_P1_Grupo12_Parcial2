@@ -1,5 +1,6 @@
 package com.mycompany.ed_p1_grupo12_parcial2;
 
+import ClasesNormales.Data;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -41,7 +42,7 @@ public class CargarArchivosController implements Initializable {
     } 
     
     //Utilizando la tecnica extraer metodo
-    private void cargarArchivoComun(Button boton,Label label,BooleanProperty archivo){
+    private String cargarArchivoComun(Button boton,Label label,BooleanProperty archivo){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccionar archivo TXT");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
@@ -67,6 +68,7 @@ public class CargarArchivosController implements Initializable {
 
                 archivo.set(true);
                 label.setText("ARCHIVO GUARDADO\nCON ÉXITO");
+                return destinationPath.toString(); //Si esto no funciona: App.pathFiles+selectedFile.getName();
             } catch (IOException e) {
                 e.printStackTrace();
                 label.setText("ERROR AL GUARDAR\nEL ARCHIVO");
@@ -74,16 +76,23 @@ public class CargarArchivosController implements Initializable {
         } else {
             label.setText("NO SE SELECCIONÓ\nNINGÚN ARCHIVO");
         }
+        return null;
     }
     
     @FXML
     private void loadFilePreguntas() {
-        cargarArchivoComun(loadFileButton,fileNameLabel,preguntas);
+        String archivo=cargarArchivoComun(loadFileButton,fileNameLabel,preguntas);
+        if (archivo != null) {
+            Data.setArchivoPreguntas(archivo);
+        }
     }
     
     @FXML
     private void loadFileRespuestas() {
-        cargarArchivoComun(loadFileButton2,fileNameLabel2,respuestas);
+        String archivo=cargarArchivoComun(loadFileButton2,fileNameLabel2,respuestas);
+        if (archivo != null) {
+            Data.setArchivoRespuestas(archivo);
+        }
     }
     
     private void mostrarAlerta(String mensaje, AlertType tipoAlerta) {

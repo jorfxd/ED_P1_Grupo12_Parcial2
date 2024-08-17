@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../../Styles/Style_Menu.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.MenuController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../../Styles/Style_Menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.MenuController">
    <children>
       <Label layoutX="108.0" layoutY="232.0" text="NOMBRE DEL JUGADOR">
          <font>
@@ -36,8 +36,6 @@
             <Font name="Press Start 2P Regular" size="56.0" />
          </font>
       </Label>
-      <TextField fx:id="nombreArchivoPreguntas" layoutX="515.0" layoutY="629.0" />
-      <TextField fx:id="nombreArchivoRespuestas" layoutX="381.0" layoutY="629.0" />
       <Label layoutX="133.0" layoutY="157.0" text="¡VERSION ADIVINA EL ANIMAL!">
          <font>
             <Font name="Press Start 2P Regular" size="31.0" />

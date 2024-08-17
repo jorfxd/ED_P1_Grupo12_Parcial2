@@ -85,9 +85,9 @@ public class BinaryTree<E> {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ruta_de_tu_fxml.fxml"));
         Parent root = loader.load();
         MenuController controller = loader.getController();
-        String nombreArchivo = controller.getArchivoPreguntas();
+        //String nombreArchivo = controller.getArchivoPreguntas();
         
-        String nombre= nombreArchivo; //En caso de no funcionar pon "Preguntas"
+        String nombre= ""; //En caso de no funcionar pon "Preguntas" nombreArchivo
         String direccion=LeerArchivo.texto;
         LeerArchivo archivo=new LeerArchivo(direccion+nombre+".txt");
         ArrayList<String> lineasPreguntas=archivo.leer();

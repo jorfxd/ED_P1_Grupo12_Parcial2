@@ -117,7 +117,6 @@ public class CargarArchivosController implements Initializable {
                 // Imprimir el árbol en la consola para verificar su estructura
                 imprimirArbol(arbol);
                 
-                // Si el árbol fue construido correctamente, pasa al siguiente menú
                 App.setRoot("Menu");
             } else {
                 mostrarAlerta("Hubo un problema al construir el árbol.", AlertType.ERROR);
@@ -129,15 +128,12 @@ public class CargarArchivosController implements Initializable {
 
     private BinaryTree<String> construirArbol() {
         try {
-            // Cargar archivo de preguntas
             Path pathPreguntas = Path.of(Data.getArchivoPreguntas());
             List<String> preguntas = Files.readAllLines(pathPreguntas);
 
-            // Cargar archivo de respuestas
             Path pathRespuestas = Path.of(Data.getArchivoRespuestas());
             List<String> respuestas = Files.readAllLines(pathRespuestas);
 
-            // Crear árbol binario
             BinaryTree<String> arbol = new BinaryTree<>();
 
             // Agregar preguntas al árbol
@@ -148,7 +144,7 @@ public class CargarArchivosController implements Initializable {
             // Aquí podrías agregar lógica adicional para procesar las respuestas y construir el árbol completo
             // dependiendo de cómo quieras manejar la estructura.
 
-            return arbol; // Retorna el árbol construido
+            return arbol; 
 
         } catch (IOException e) {
             e.printStackTrace();

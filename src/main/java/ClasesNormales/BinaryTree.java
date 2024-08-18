@@ -38,47 +38,39 @@ public class BinaryTree<E> {
     }
     
     public boolean addPregunta(E contenido) {
-        // Caso base: Si el árbol está vacío, establece la raíz
+    // Caso base: Si el árbol está vacío, establece la raíz
         if (this.isEmpty()) {
             this.root = new NodeBinaryTree<>(contenido);
-            
             return true;
         }
 
         // Usa una pila para recorrer el árbol en profundidad (DFS)
-        Stack<BinaryTree<E>> stack = new Stack<>();
-        stack.push(this);
+        Stack<NodeBinaryTree<E>> stack = new Stack<>();
+        stack.push(this.root);
 
         while (!stack.isEmpty()) {
-            BinaryTree<E> currentNode = stack.pop();
+            NodeBinaryTree<E> currentNode = stack.pop();
 
             // Si el hijo izquierdo es nulo, agrega el nuevo nodo allí
-            if (currentNode.getRoot().getLeft() == null) {
-                BinaryTree<E> newNodeiz= new BinaryTree<>(contenido);
-                BinaryTree<E> newNodeder= new BinaryTree<>(contenido);
-                currentNode.getRoot().setLeft(newNodeiz);
-                currentNode.getRoot().setRight(newNodeder);
-                
+            if (currentNode.getLeft() == null) {
+                currentNode.setLeft(new BinaryTree<>(contenido));
                 return true;
             } else {
-                stack.push(currentNode.getRoot().getLeft());
+                stack.push(currentNode.getLeft().getRoot());
             }
 
             // Si el hijo derecho es nulo, agrega el nuevo nodo allí
-            if (currentNode.getRoot().getRight() == null) {
-                BinaryTree<E> newNodeiz= new BinaryTree<>(contenido);
-                BinaryTree<E> newNodeder= new BinaryTree<>(contenido);
-                currentNode.getRoot().setRight(newNodeiz);
-                currentNode.getRoot().setLeft(newNodeder);
-
+            if (currentNode.getRight() == null) {
+                currentNode.setRight(new BinaryTree<>(contenido));
                 return true;
             } else {
-                stack.push(currentNode.getRoot().getRight());
+                stack.push(currentNode.getRight().getRoot());
             }
         }
 
         return false; // En teoría, nunca se debería llegar aquí
     }
+
     
     public void crearArbol() throws IOException{
         

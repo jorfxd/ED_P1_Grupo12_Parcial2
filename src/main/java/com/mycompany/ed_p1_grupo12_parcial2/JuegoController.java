@@ -36,11 +36,11 @@ public class JuegoController implements Initializable {
 //        //Ver numero de pregunta 
 //        contador.setText("Preguntas restantes: " + preguntasRestantes);
     }
-    
+    @FXML
     private void OpcionSi() {
         avanzarJuego(true);
     }
-    
+    @FXML
     private void OpcionNo() {
         avanzarJuego(false);
     }

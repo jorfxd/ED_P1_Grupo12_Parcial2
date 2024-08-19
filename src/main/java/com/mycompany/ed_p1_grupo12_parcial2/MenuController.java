@@ -3,7 +3,6 @@ package com.mycompany.ed_p1_grupo12_parcial2;
 import ClasesNormales.Data;
 import ClasesNormales.Jugador;
 import static ClasesNormales.Jugador.crearJugador;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -12,11 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 
 public class MenuController implements Initializable {
     
@@ -82,13 +77,13 @@ public class MenuController implements Initializable {
                     if (verificar) {
                         App.setRoot("Juego");
                     } else {
-                        apodoJugador.setText("Este apodo ya existe.");
+                        apodoJugador.setText("Este apodo ya existe");
                     }
                 } else {
-                    cantidadPreguntas.setText("Las preguntas deben ser > 0 y <= 20.");
+                    cantidadPreguntas.setText("Debe ser > 0 y <= 20.");
                 }
             } catch (NumberFormatException e) {
-                mostrarAlerta("Por favor ingrese un número válido para la cantidad de preguntas.", Alert.AlertType.ERROR);
+                mostrarAlerta("Por favor ingrese un número válido", Alert.AlertType.ERROR);
             }
         } else {
             mostrarAlerta("Debe llenar todos los campos", Alert.AlertType.WARNING);
@@ -99,9 +94,7 @@ public class MenuController implements Initializable {
         
             int cantidad = Integer.parseInt(cantidadPre);
             if(rango(cantidad)){
-                Data.setCantidadPreguntas(cantidad);
-            
-            
+                Data.setCantidadPreguntas(cantidad);   
         } 
     }
     

@@ -49,7 +49,12 @@
       </Label>
       <Button fx:id="btinicio" layoutX="49.0" layoutY="561.0" mnemonicParsing="false" onAction="#switchToPresentacion" prefHeight="40.0" prefWidth="221.0" style="-fx-background-color: clear;" />
       <Button fx:id="btsiguiente" layoutX="742.0" layoutY="561.0" mnemonicParsing="false" onAction="#switchToCargarArchivos" prefHeight="40.0" prefWidth="309.0" style="-fx-background-color: clear;" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="249.0" prefHeight="270.0" prefWidth="815.0" text="En este juego, tendrás la oportunidad de ver cómo una computadora puede usar preguntas para aprender y deducir información. Piensa en un animal, y la computadora intentará adivinar cuál es, formulando preguntas a las que solo podrás responder con &quot;sí&quot; o &quot;no&quot;. Cada respuesta que le des ayudará a la computadora a acercarse a la respuesta correcta, ¡o a aprender algo nuevo si no acierta! " textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="252.0" prefHeight="103.0" prefWidth="815.0" text="En este juego, tendrás la oportunidad de ver cómo una computadora puede usar preguntas para aprender y deducir información." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="JoystixMonospace-Regular" size="21.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="353.0" prefHeight="150.0" prefWidth="815.0" text="Piensa en un animal, y la computadora intentará adivinar cuál es, formulando preguntas a las que solo podrás responder con un &quot;sí&quot; o &quot;no&quot;. Cada respuesta que le des la ayudará a acercarse a la respuesta correcta." textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="JoystixMonospace-Regular" size="21.0" />
          </font>

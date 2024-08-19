@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../../Styles/Style_Respuesta1.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.Respuesta1Controller">
+   <children>
+      <ImageView fitHeight="36.0" fitWidth="38.0" layoutX="69.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/Icon_Options.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagenAnimal" fitHeight="396.0" fitWidth="378.0" layoutX="577.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Animales/Ciervo.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="161.0" prefHeight="76.0" prefWidth="398.0" text="RESPUESTA" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="Press Start 2P Regular" size="37.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="159.0" prefHeight="76.0" prefWidth="398.0" text="RESPUESTA" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="Press Start 2P Regular" size="37.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="97.0" layoutY="229.0" prefHeight="76.0" prefWidth="488.0">
+         <children>
+            <Label fx:id="nombreAnimal" alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="488.0" text="CABALLO" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Press Start 2P Regular" size="55.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Button fx:id="btnCorrecto" layoutX="168.0" layoutY="333.0" mnemonicParsing="false" onAction="#switchToCorrecto" prefHeight="77.0" prefWidth="345.0" style="-fx-background-color: white;" text="CORRECTO" textFill="#325887">
+         <font>
+            <Font name="Arcade Normal" size="28.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnIncorrecto" layoutX="168.0" layoutY="422.0" mnemonicParsing="false" onAction="#switchToIncorrecto" prefHeight="77.0" prefWidth="345.0" style="-fx-background-color: white;" text="INCORRECTO" textFill="#325887">
+         <font>
+            <Font name="Arcade Normal" size="28.0" />
+         </font>
+      </Button>
+      <Button fx:id="opciones" layoutX="59.0" layoutY="57.0" mnemonicParsing="false" onAction="#switchToOpciones" prefHeight="61.0" prefWidth="58.0" style="-fx-background-color: clear;" />
+   </children>
+</AnchorPane>

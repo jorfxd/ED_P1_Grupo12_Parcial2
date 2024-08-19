@@ -1,0 +1,4 @@
+.root{
+    -fx-background-image: url("/Images/Background_Incorrecto.gif");
+    -fx-background-size:cover;
+}

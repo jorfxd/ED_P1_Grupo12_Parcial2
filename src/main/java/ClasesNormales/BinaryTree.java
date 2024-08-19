@@ -38,20 +38,17 @@ public class BinaryTree<E> {
     }
     
     public boolean addPregunta(E contenido) {
-    // Caso base: Si el árbol está vacío, establece la raíz
         if (this.isEmpty()) {
             this.root = new NodeBinaryTree<>(contenido);
             return true;
         }
 
-        // Usa una pila para recorrer el árbol en profundidad (DFS)
         Stack<NodeBinaryTree<E>> stack = new Stack<>();
         stack.push(this.root);
 
         while (!stack.isEmpty()) {
             NodeBinaryTree<E> currentNode = stack.pop();
 
-            // Si el hijo izquierdo es nulo, agrega el nuevo nodo allí
             if (currentNode.getLeft() == null) {
                 currentNode.setLeft(new BinaryTree<>(contenido));
                 return true;
@@ -59,7 +56,6 @@ public class BinaryTree<E> {
                 stack.push(currentNode.getLeft().getRoot());
             }
 
-            // Si el hijo derecho es nulo, agrega el nuevo nodo allí
             if (currentNode.getRight() == null) {
                 currentNode.setRight(new BinaryTree<>(contenido));
                 return true;

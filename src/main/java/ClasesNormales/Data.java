@@ -8,9 +8,18 @@ public class Data {
     private static String archivoPreguntas;
     private static String archivoRespuestas;
     private static int cantidadPreguntas;
+    private static BinaryTree<String> arbolPreguntas;
 
     public static String getArchivoPreguntas() {
         return archivoPreguntas;
+    }
+
+    public static BinaryTree<String> getArbolPreguntas() {
+        return arbolPreguntas;
+    }
+
+    public static void setArbolPreguntas(BinaryTree<String> arbolPreguntas) {
+        Data.arbolPreguntas = arbolPreguntas;
     }
 
     public static void setArchivoPreguntas(String archivo) {
@@ -32,4 +41,5 @@ public class Data {
     public static void setCantidadPreguntas(int numero) {
         cantidadPreguntas = numero;
     }
+
 }

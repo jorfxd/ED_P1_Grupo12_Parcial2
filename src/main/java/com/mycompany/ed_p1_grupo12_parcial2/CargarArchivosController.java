@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.control.Alert;
@@ -29,6 +30,7 @@ public class CargarArchivosController implements Initializable {
     
     private final BooleanProperty preguntas = new SimpleBooleanProperty(false);
     private final BooleanProperty respuestas = new SimpleBooleanProperty(false);
+    private BinaryTree<String> arbol;
     
     @FXML private Button loadFileButton;
     @FXML private Label fileNameLabel;
@@ -87,6 +89,7 @@ public class CargarArchivosController implements Initializable {
         String archivo=cargarArchivoComun(loadFileButton,fileNameLabel,preguntas);
         if (archivo != null) {
             Data.setArchivoPreguntas(archivo);
+             arbol = construirArbol();
         }
     }
     
@@ -113,10 +116,13 @@ public class CargarArchivosController implements Initializable {
 
         if (ingresoArchivoPreguntas && ingresoArchivoRespuestas) {
             BinaryTree<String> arbol = construirArbol();
+            BinaryTree<String> arbolf = construirArbol();
             if (arbol != null) {
-                // Imprimir el árbol en la consola para verificar su estructura
+                // Imprime el árbol (Borrar)
                 imprimirArbol(arbol);
-                
+                arbol = construirArbol(arbol);
+                Data.setArbolPreguntas(arbol);
+                imprimirArbol(arbol);
                 App.setRoot("Menu");
             } else {
                 mostrarAlerta("Hubo un problema al construir el árbol.", AlertType.ERROR);
@@ -131,28 +137,69 @@ public class CargarArchivosController implements Initializable {
             Path pathPreguntas = Path.of(Data.getArchivoPreguntas());
             List<String> preguntas = Files.readAllLines(pathPreguntas);
 
-            Path pathRespuestas = Path.of(Data.getArchivoRespuestas());
-            List<String> respuestas = Files.readAllLines(pathRespuestas);
-
             BinaryTree<String> arbol = new BinaryTree<>();
 
-            // Agregar preguntas al árbol
             for (String pregunta : preguntas) {
                 arbol.addPregunta(pregunta);
             }
-
-            // Aquí podrías agregar lógica adicional para procesar las respuestas y construir el árbol completo
-            // dependiendo de cómo quieras manejar la estructura.
-
             return arbol; 
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error archivos " + e.getMessage(), AlertType.ERROR);
+            return null;
+        }
+    }
+    
+    private BinaryTree<String> construirArbol(BinaryTree<String> a) {
+        try {
+            Path pathRespuestas = Path.of(Data.getArchivoRespuestas());
+            List<String> listaRespuestas = Files.readAllLines(pathRespuestas);
 
+            for (String respuestaLinea : listaRespuestas) {
+                String[] partes = respuestaLinea.split(" ");
+                String animal = partes[0];  //  animal
+                List<String> respuestas = new ArrayList<>();
+
+                
+                for (int i = 1; i < partes.length; i++) {
+                    respuestas.add(partes[i]);
+                }
+
+                
+                NodeBinaryTree<String> nodoActual = a.getRoot();
+
+                for (String respuesta : respuestas) {
+                    if ("si".equals(respuesta)) {
+                        if (nodoActual.getLeft() == null) {
+                            //izquierda
+                            BinaryTree<String> nuevoSubArbol = new BinaryTree<>(animal);
+                            nodoActual.setLeft(nuevoSubArbol);
+                            break; // Detener el ciclo si ya hemos agregado el animal
+                        } else {
+                            nodoActual = nodoActual.getLeft().getRoot();
+                        }
+                    } else if ("no".equals(respuesta)) {
+                        if (nodoActual.getRight() == null) {
+                            // derecha
+                            BinaryTree<String> nuevoSubArbol = new BinaryTree<>(animal);
+                            nodoActual.setRight(nuevoSubArbol);
+                            break; 
+                        } else {
+                            nodoActual = nodoActual.getRight().getRoot();
+                        }
+                    }
+                }
+            }
+
+            return a; 
         } catch (IOException e) {
             e.printStackTrace();
             mostrarAlerta("Error al leer los archivos: " + e.getMessage(), AlertType.ERROR);
             return null;
         }
     }
-    
+
     @FXML
     private void switchToInstrucciones()throws IOException{
         App.setRoot("Instrucciones");
@@ -163,16 +210,16 @@ public class CargarArchivosController implements Initializable {
         if (arbol != null && arbol.getRoot() != null) {
             imprimirNodo(arbol.getRoot(), 0);
         } else {
-            System.out.println("El árbol está vacío.");
+            System.out.println("Arbol vacio");
         }
     }
 
-    // Método recursivo para imprimir cada nodo del árbol
+
     private void imprimirNodo(NodeBinaryTree<String> nodo, int nivel) {
         if (nodo != null) {
-            // Imprime el contenido del nodo con una sangría dependiendo del nivel
-            System.out.println("Nivel " + nivel + ": " + nodo.getContent());
-            // Llamadas recursivas para los hijos izquierdo y derecho
+
+            System.out.println("Nivel " + nivel + "" + nodo.getContent());
+
             if (nodo.getLeft() != null) {
                 imprimirNodo(nodo.getLeft().getRoot(), nivel + 1);
             }

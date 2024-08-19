@@ -5,17 +5,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.OpcionesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../Styles/Style_Opciones.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ed_p1_grupo12_parcial2.OpcionesController">
    <children>
-      <Label layoutX="246.0" layoutY="57.0" text="Opciones">
+      <Label layoutX="199.0" layoutY="65.0" prefHeight="38.0" prefWidth="357.0" text="OPCIONES" textAlignment="CENTER">
          <font>
-            <Font name="System Italic" size="24.0" />
+            <Font name="Press Start 2P Regular" size="42.0" />
          </font>
       </Label>
-      <Button fx:id="jugarDenuevo" layoutX="245.0" layoutY="126.0" mnemonicParsing="false" onAction="#switchToJuego" text="Jugar De nuevo" />
-      <Button fx:id="irArchivos" layoutX="233.0" layoutY="169.0" mnemonicParsing="false" onAction="#switchToCargarArchivos" text="Cargar mas archivos" />
-      <Button fx:id="irAMenu" layoutX="259.0" layoutY="213.0" mnemonicParsing="false" onAction="#switchToMenu" text="Ir al Menu" />
-      <Button fx:id="salir" layoutX="275.0" layoutY="265.0" mnemonicParsing="false" onAction="#salir" text="Salir" />
+      <Label layoutX="198.0" layoutY="63.0" prefHeight="38.0" prefWidth="357.0" text="OPCIONES" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Press Start 2P Regular" size="42.0" />
+         </font>
+      </Label>
+      <Button fx:id="volverJuego" layoutX="196.0" layoutY="129.0" mnemonicParsing="false" onAction="#switchToJuego" prefHeight="45.0" prefWidth="339.0" style="-fx-background-color: WHITE;" text="VOLVER AL JUEGO" textFill="#325887">
+         <font>
+            <Font name="Arcade Normal" size="16.0" />
+         </font></Button>
+      <Button fx:id="irArchivos" layoutX="196.0" layoutY="185.0" mnemonicParsing="false" onAction="#switchToCargarArchivos" prefHeight="45.0" prefWidth="339.0" style="-fx-background-color: WHITE;" text="Cargar mas archivos" textFill="#325887">
+         <font>
+            <Font name="Arcade Normal" size="16.0" />
+         </font></Button>
+      <Button fx:id="irAPre" layoutX="196.0" layoutY="240.0" mnemonicParsing="false" onAction="#switchToPresentacion" prefHeight="45.0" prefWidth="339.0" style="-fx-background-color: WHITE;" text="INICIO DEL JUEGO" textFill="#325887">
+         <font>
+            <Font name="Arcade Normal" size="16.0" />
+         </font></Button>
+      <Button fx:id="salir" layoutX="196.0" layoutY="296.0" mnemonicParsing="false" onAction="#salir" prefHeight="45.0" prefWidth="339.0" style="-fx-background-color: WHITE;" text="SALIR DEL JUEGO" textFill="#325887">
+         <font>
+            <Font name="Arcade Normal" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>

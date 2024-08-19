@@ -7,7 +7,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -73,7 +75,7 @@ public class JuegoController implements Initializable {
         if (arbolPreguntas != null && arbolPreguntas.isLeaf()) {
             texto.setText("Respuesta final: " + arbolPreguntas.getRoot().getContent());
         } else  { //Aqui se implementar crear lista de animales que
-            texto.setText(" No preguntas");
+            texto.setText("No preguntas");
         }
         si.setDisable(true);
         no.setDisable(true);
@@ -81,28 +83,23 @@ public class JuegoController implements Initializable {
     
     @FXML
     private void switchToOpciones() throws IOException {
-        VBox root = new VBox();             
-        Scene g = new Scene(root, 600, 400);
-        Stage stage = new Stage();
-        stage.setScene(g);
-        stage.setTitle("Detalles de Ubicación");
-        stage.show();
-
         Thread thread = new Thread(() -> {
-            for (int i = 5; i > 0; i--) {
-                int finalI = i;
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Opciones.fxml"));
+                Parent root = loader.load();
+                
                 Platform.runLater(() -> {
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Opciones");
+                    stage.show();
                 });
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        Platform.runLater(() -> stage.close());
         });
 
         thread.start();
-    } 
+    }
     
 }

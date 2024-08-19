@@ -28,9 +28,9 @@
       </Button>
       <HBox alignment="CENTER" layoutX="116.0" layoutY="114.0" prefHeight="111.0" prefWidth="870.0">
          <children>
-            <Label fx:id="texto" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="54.0" prefWidth="870.0" text="PREGUNTA UNO" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="texto" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="111.0" prefWidth="779.0" text="¿Se para este animal sobre cuatro patas?" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Press Start 2P Regular" size="48.0" />
+                  <Font name="Press Start 2P Regular" size="38.0" />
                </font>
             </Label>
          </children>
